@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Bryan Delos Santos - Portfolio</title>
+    <meta name="description"
+        content="Portfolio of an IT College Student showcasing skills, projects, and passion for technology.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- html2pdf for CV generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="logo">Portfolio</div>
+            <div class="nav-icons">
+                <a href="#" class="icon-btn" onclick="switchBottomNav('profile', 'projects-grid', event)"><i
+                        class="far fa-plus-square"></i></a>
+                <a href="#" class="icon-btn" onclick="switchBottomNav('profile', 'experience-list', event)"><i
+                        class="far fa-heart"></i></a>
+                <a href="#" class="icon-btn" onclick="switchBottomNav('contact', null, event)"><i
+                        class="far fa-paper-plane"></i></a>
+            </div>
+        </nav>
+
+        <!-- Profile Header Section -->
+        <div id="view-profile" class="app-view">
+            <header class="profile-header">
+                <div class="profile-top">
+                    <div class="avatar-container story-active">
+                        <img src="assets/avatar.jpg" alt="Avatar" class="avatar"
+                            onerror="this.src='https://via.placeholder.com/150/2B213A/00E5FF?text=JD'">
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat"><strong>5</strong><span>Posts</span></div>
+                        <div class="stat"><strong>10</strong><span>Skills</span></div>
+                        <div class="stat"><strong>1</strong><span>Certs</span></div>
+                    </div>
+                </div>
+
+                <div class="profile-bio">
+                    <h1 class="glitch-text" data-text="Mark Bryan Delos Santos">Mark Bryan Delos Santos</h1>
+                    <p class="role">IT College Student @ DNSC <i class="fas fa-check-circle verified-icon"></i></p>
+                    <p class="description"
+                        style="margin-top: 10px; margin-bottom: 10px; line-height: 1.5; font-size: 0.9rem; color: var(--text-secondary); text-align: justify;">
+                        <strong style="color: var(--color-cyan);">About:</strong> Detail-oriented and creative BS
+                        Information Technology student with hands-on experience in full stack web development, mobile
+                        app development, database-driven systems, and multimedia content creation. Skilled in building
+                        responsive web interfaces, Flutter-based mobile applications, and secure data workflows using
+                        modern backend services. Passionate about leveraging technology for practical community
+                        solutions through data-driven applications, user-centered design, and privacy-aware platforms.
+                    </p>
+                    <div class="contact-badges" style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 10px;">
+                        <a href="tel:09668366355"
+                            style="background: rgba(0, 229, 255, 0.1); border: 1px solid var(--color-cyan); color: var(--color-cyan); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: all 0.3s;"><i
+                                class="fas fa-phone"></i> 09668366355</a>
+                        <a href="mailto:markbryandelossantos4@gmail.com"
+                            style="background: rgba(225, 48, 108, 0.1); border: 1px solid var(--color-pink); color: var(--color-pink); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: all 0.3s;"><i
+                                class="fas fa-envelope"></i> markbryandelossantos4@gmail.com</a>
+                        <a href="https://github.com/markbryandelossantos4" target="_blank"
+                            style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--text-secondary); color: var(--text-primary); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: all 0.3s;"><i
+                                class="fab fa-github"></i> GitHub</a>
+                        <a href="#" onclick="switchBottomNav('profile', 'projects-grid', event)"
+                            style="background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-secondary); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: all 0.3s;"><i
+                                class="fas fa-link"></i> portfolio.cyber</a>
+                    </div>
+                </div>
+
+                <div class="profile-actions">
+                    <button class="btn primary-btn" onclick="downloadCV()">Download CV</button>
+                    <button class="btn secondary-btn" onclick="switchBottomNav('contact', null, event)">Message</button>
+                    <button class="btn icon-btn-box" onclick="switchBottomNav('profile', 'experience-list', event)"><i
+                            class="fas fa-user-plus"></i></button>
+                    <button class="btn icon-btn-box" onclick="toggleBottomNav(event)"><i class="fas fa-eye-slash"
+                            id="nav-toggle-icon"></i></button>
+                </div>
+            </header>
+
+            <!-- Tech Stack "Stories/Highlights" -->
+            <section class="highlights-container">
+                <div class="highlights-scroll">
+                    <div class="highlight-wrapper">
+                        <div class="story-ring">
+                            <div class="highlight-circle"><i class="fab fa-html5"></i></div>
+                        </div>
+                        <span>HTML/CSS</span>
+                    </div>
+                    <div class="highlight-wrapper">
+                        <div class="story-ring">
+                            <div class="highlight-circle"><i class="fab fa-js"></i></div>
+                        </div>
+                        <span>JS</span>
+                    </div>
+                    <div class="highlight-wrapper">
+                        <div class="story-ring">
+                            <div class="highlight-circle"><i class="fab fa-python"></i></div>
+                        </div>
+                        <span>Python</span>
+                    </div>
+                    <div class="highlight-wrapper">
+                        <div class="story-ring">
+                            <div class="highlight-circle"><i class="fab fa-react"></i></div>
+                        </div>
+                        <span>React</span>
+                    </div>
+                    <div class="highlight-wrapper">
+                        <div class="story-ring">
+                            <div class="highlight-circle"><i class="fas fa-mobile-alt"></i></div>
+                        </div>
+                        <span>Flutter</span>
+                    </div>
+                    <div class="highlight-wrapper">
+                        <div class="story-ring">
+                            <div class="highlight-circle"><i class="fas fa-database"></i></div>
+                        </div>
+                        <span>SQL</span>
+                    </div>
+                    <div class="highlight-wrapper">
+                        <div class="story-ring">
+                            <div class="highlight-circle"><i class="fas fa-palette"></i></div>
+                        </div>
+                        <span>Design</span>
+                    </div>
+                    <div class="highlight-wrapper">
+                        <div class="story-ring">
+                            <div class="highlight-circle"><i class="fab fa-adobe"></i></div>
+                        </div>
+                        <span>Photoshop</span>
+                    </div>
+                    <div class="highlight-wrapper">
+                        <div class="story-ring">
+                            <div class="highlight-circle"><i class="fas fa-pen-nib"></i></div>
+                        </div>
+                        <span>Illustrator</span>
+                    </div>
+                    <div class="highlight-wrapper">
+                        <div class="story-ring">
+                            <div class="highlight-circle"><i class="fas fa-video"></i></div>
+                        </div>
+                        <span>After Effects</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('projects-grid')"><i class="fas fa-th"></i></button>
+                <button class="tab-btn" onclick="switchTab('experience-list')"><i class="fas fa-briefcase"></i></button>
+                <button class="tab-btn" onclick="switchTab('certs-list')"><i class="fas fa-certificate"></i></button>
+            </div>
+
+            <!-- Feed Container -->
+            <main class="feed-container">
+
+                <!-- Projects (Grid) -->
+                <div id="projects-grid" class="feed-section active grid-layout">
+                    <div class="post-square"
+                        onclick='openModal("Food Ordering Management System", "A comprehensive platform used for managing orders from different users/customers seamlessly. Swipe to see more screenshots!", "Java, JFrame, SQL", ["file ni/crud.png", "file ni/crud2.png", "file ni/crud3.png", "file ni/crud4.png"])'>
+                        <img src="file ni/crud.png" alt="Project"
+                            onerror="this.src='https://via.placeholder.com/300/2B213A/E1306C?text=JOBOL'">
+                        <div class="post-overlay"><i class="fas fa-heart"></i> 124 <i class="fas fa-comment"></i> 12
+                        </div>
+                    </div>
+                    <div class="post-square"
+                        onclick='openModal("Coffee Shop Website", "A visually engaging website designed for promoting and advertising a local coffee shop. Swipe to see more screenshots!", "HTML, CSS, JavaScript", ["file ni/web.png", "file ni/web1.png", "file ni/web2.png"])'>
+                        <img src="file ni/web.png" alt="Project"
+                            onerror="this.src='https://via.placeholder.com/300/2B213A/E1306C?text=Coffee'">
+                        <div class="post-overlay"><i class="fas fa-heart"></i> 256 <i class="fas fa-comment"></i> 45
+                        </div>
+                    </div>
+                    <div class="post-square"
+                        onclick='openModal("TinkerNest", "A highly secure platform used for communicating and social interactions, built with a core focus on 100% user privacy and data protection. Swipe to see more screenshots!", "Flutter, Dart, Supabase", ["file ni/tinkernest.png", "file ni/tinkernest1.png"])'>
+                        <img src="file ni/tinkernest.png" alt="Project"
+                            onerror="this.src='https://via.placeholder.com/300/2B213A/00E5FF?text=Tinkernest'">
+                        <div class="post-overlay"><i class="fas fa-heart"></i> 112 <i class="fas fa-comment"></i> 8
+                        </div>
+                    </div>
+                    <div class="post-square"
+                        onclick='openModal("AgriSync", "A cross-platform mobile application featuring three distinct user roles: farmers, consumers, and riders. It allows consumers to shop online directly from farmers, categorizing items into vegetables, fruits, spices, and rice. Swipe to see more screenshots!", "Flutter, Dart, Supabase", ["file ni/agri.png", "file ni/agri1.png", "file ni/agri2.png", "file ni/agri3.png"])'>
+                        <img src="file ni/agri.png" alt="Project"
+                            onerror="this.src='https://via.placeholder.com/300/2B213A/E1306C?text=Agri'">
+                        <div class="post-overlay"><i class="fas fa-heart"></i> 340 <i class="fas fa-comment"></i> 22
+                        </div>
+                    </div>
+                    <div class="post-square"
+                        onclick='openModal("AgriSync Promotional Website", "A promotional website to advertise AgriSync. Connects local farmers, buyers, and riders in Panabo City — delivering farm-fresh produce faster, fairer, and smarter. Swipe to see more screenshots!", "HTML, CSS, JavaScript", ["file ni/promo.png", "file ni/promo1.png", "file ni/promo2.png", "file ni/promo3.png"], "https://agrisync-fresh.netlify.app/")'>
+                        <img src="file ni/promo.png" alt="Project"
+                            onerror="this.src='https://via.placeholder.com/300/2B213A/E1306C?text=Promo'">
+                        <div class="post-overlay"><i class="fas fa-heart"></i> 185 <i class="fas fa-comment"></i> 15
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience (List View) -->
+                <div id="experience-list" class="feed-section list-layout hidden">
+                    <div class="list-item cyberpunk-card">
+                        <div class="item-icon story-active"><i class="fas fa-briefcase"></i></div>
+                        <div class="item-details">
+                            <h3 class="cyber-title">Graphic Designer</h3>
+                            <p class="cyber-subtitle">Freelance / Various Platforms</p>
+                            <span class="cyber-date">2023 - Present</span>
+                            <p class="cyber-desc">Designed logos, branding materials, and social media graphics for
+                                various local clients using Adobe Photoshop and Illustrator.</p>
+                        </div>
+                    </div>
+                    <div class="list-item cyberpunk-card">
+                        <div class="item-icon story-active"><i class="fas fa-laptop-code"></i></div>
+                        <div class="item-details">
+                            <h3 class="cyber-title">Web Developer</h3>
+                            <p class="cyber-subtitle">Academic Projects</p>
+                            <span class="cyber-date">2022 - Present</span>
+                            <p class="cyber-desc">Developing scalable full-stack applications with modern frameworks.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="list-item cyberpunk-card">
+                        <div class="item-icon story-active"><i class="fas fa-object-group"></i></div>
+                        <div class="item-details">
+                            <h3 class="cyber-title">UI/UX Developer</h3>
+                            <p class="cyber-subtitle">Freelance & Projects</p>
+                            <span class="cyber-date">2023 - Present</span>
+                            <p class="cyber-desc">Designing user-friendly, aesthetic interfaces and engaging user
+                                experiences for web and mobile platforms.</p>
+                        </div>
+                    </div>
+                    <div class="list-item cyberpunk-card">
+                        <div class="item-icon story-active"><i class="fas fa-layer-group"></i></div>
+                        <div class="item-details">
+                            <h3 class="cyber-title">Platform or Applications Developer</h3>
+                            <p class="cyber-subtitle">Independent Projects</p>
+                            <span class="cyber-date">2022 - Present</span>
+                            <p class="cyber-desc">Building, optimizing, and maintaining scalable applications and robust
+                                platforms across various environments.</p>
+                        </div>
+                    </div>
+                    <div class="list-item cyberpunk-card">
+                        <div class="item-icon story-active"><i class="fas fa-camera"></i></div>
+                        <div class="item-details">
+                            <h3 class="cyber-title">Photographer and Videographer</h3>
+                            <p class="cyber-subtitle">Freelance</p>
+                            <span class="cyber-date">2021 - Present</span>
+                            <p class="cyber-desc">Capturing high-quality photos and dynamic videos for events, products,
+                                and creative digital media.</p>
+                        </div>
+                    </div>
+                    <div class="list-item cyberpunk-card">
+                        <div class="item-icon story-active"><i class="fas fa-film"></i></div>
+                        <div class="item-details">
+                            <h3 class="cyber-title">Photo and Video Editor</h3>
+                            <p class="cyber-subtitle">Freelance</p>
+                            <span class="cyber-date">2021 - Present</span>
+                            <p class="cyber-desc">Post-processing, color grading, and editing visual content using
+                                industry-standard professional software.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications (List View) -->
+                <div id="certs-list" class="feed-section list-layout hidden">
+                    <div class="list-item cyberpunk-card">
+                        <div class="item-icon story-active"><i class="fas fa-certificate"></i></div>
+                        <div class="item-details">
+                            <h3 class="cyber-title">CCNA: Switching, Routing</h3>
+                            <p class="cyber-subtitle">Davao Del Norte State College</p>
+                            <span class="cyber-date">July 2025</span>
+                            <button class="btn outline-btn"
+                                style="margin-top: 10px; font-size: 0.8rem; padding: 5px 10px;"
+                                onclick='openModal("CCNA: Switching, Routing", "Cisco Certified Network Associate credential from Davao Del Norte State College.", "Networking & Infrastructure", ["file ni/certi.png"])'>View
+                                Credential</button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <!-- Contact Section (Styled as DM/Messages) -->
+        <div id="view-contact" class="app-view" style="display: none;">
+            <section id="contact" class="dm-section">
+                <h2 class="dm-header">Contact Information</h2>
+                <div class="dm-container cyberpunk-card" style="margin-bottom: 20px;">
+                    <div style="display: flex; flex-direction: column; gap: 15px; font-size: 0.95rem;">
+                        <div><i class="fas fa-phone"
+                                style="color: var(--color-cyan); width: 30px; font-size: 1.2rem;"></i> 09668366355</div>
+                        <div><i class="fas fa-envelope"
+                                style="color: var(--color-cyan); width: 30px; font-size: 1.2rem;"></i>
+                            markbryandelossantos4@gmail.com</div>
+                        <div><i class="fab fa-github"
+                                style="color: var(--color-cyan); width: 30px; font-size: 1.2rem;"></i> <a
+                                href="https://github.com/markbryandelossantos4" target="_blank"
+                                style="color: var(--text-primary); text-decoration: none;">github.com/markbryandelossantos4</a>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="dm-header">Direct Messages</h2>
+                <div class="dm-container cyberpunk-card">
+                    <form class="contact-form">
+                        <div class="input-group">
+                            <input type="text" placeholder="Username" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" placeholder="Email address" required>
+                        </div>
+                        <div class="input-group">
+                            <textarea rows="4" placeholder="Send a message..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn btn-block">Send <i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Floating Nav Toggle -->
+    <button class="floating-toggle" id="floatingToggleBtn" onclick="toggleBottomNav(event)">
+        <i class="fas fa-eye-slash" id="floatingToggleIcon"></i>
+    </button>
+
+    <!-- Bottom Mobile Nav -->
+    <nav class="bottom-nav">
+        <a href="#" class="active" onclick="switchBottomNav('profile', 'projects-grid', event)"><i
+                class="fas fa-home"></i></a>
+        <a href="#" onclick="switchBottomNav('profile', 'projects-grid', event)"><i class="fas fa-search"></i></a>
+        <a href="#" onclick="switchBottomNav('profile', 'experience-list', event)"><i class="fas fa-briefcase"></i></a>
+        <a href="#" onclick="switchBottomNav('contact', null, event)"><i class="fas fa-envelope"></i></a>
+        <a href="#" onclick="switchBottomNav('profile', null, event)">
+            <div class="nav-avatar-ring"><img src="assets/avatar.jpg" class="nav-avatar"
+                    onerror="this.src='https://via.placeholder.com/30/2B213A/00E5FF'"></div>
+        </a>
+    </nav>
+
+    <!-- Modal for Project Preview -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content cyberpunk-modal">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <div class="modal-user">
+                        <img src="assets/avatar.jpg" alt="User" class="modal-avatar"
+                            onerror="this.src='https://via.placeholder.com/40/2B213A/E1306C'">
+                        <strong>Mark Bryan</strong>
+                    </div>
+                </div>
+                <div style="position: relative;">
+                    <div class="modal-img-container" id="modalImgContainer">
+                        <!-- Images dynamically injected -->
+                    </div>
+                    <!-- Navigation Buttons -->
+                    <button id="modalPrevBtn" class="carousel-btn prev-btn" onclick="scrollModal(-1)"><i
+                            class="fas fa-chevron-left"></i></button>
+                    <button id="modalNextBtn" class="carousel-btn next-btn" onclick="scrollModal(1)"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="modal-actions">
+                    <i class="far fa-heart"></i>
+                    <i class="far fa-comment"></i>
+                    <i class="far fa-paper-plane"></i>
+                    <i class="far fa-bookmark" style="margin-left: auto;"></i>
+                </div>
+                <div class="modal-info">
+                    <p><strong><span id="modalTitle">Project Title</span></strong></p>
+                    <p style="margin-bottom: 5px;"><span id="modalDesc"
+                            style="color: var(--text-secondary); line-height: 1.5; font-size: 0.95rem;">Project
+                            description</span></p>
+                    <p style="color: var(--color-cyan); font-size: 0.85rem; margin-top: 10px;"><i
+                            class="fas fa-code"></i> <span id="modalTech">Tech Stack</span></p>
+                    <p id="modalLinkWrap" style="display: none; margin-top: 10px; font-size: 0.85rem;">
+                        <i class="fas fa-external-link-alt" style="color: var(--color-pink);"></i>
+                        <a id="modalLink" href="#" target="_blank" rel="noopener noreferrer"
+                            style="color: var(--color-pink); text-decoration: none;">Visit Website</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden CV Template -->
+    <div style="display: none;">
+        <div id="cv-template"
+            style="font-family: 'Inter', sans-serif; padding: 40px; color: #333; width: 800px; background: #fff; margin: 0 auto;">
+            <h1 style="text-align: center; color: #000; margin-bottom: 5px;">Mark Bryan Delos Santos</h1>
+            <p style="text-align: center; font-size: 14px; color: #666; margin-bottom: 30px;">
+                markbryandelossantos4@gmail.com | 09668366355</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleBottomNav(event) {
+            if (event) event.preventDefault();
+            const nav = document.querySelector('.bottom-nav');
+            const floatingBtn = document.getElementById('floatingToggleBtn');
+            const floatingIcon = document.getElementById('floatingToggleIcon');
+            const topIcon = document.getElementById('nav-toggle-icon');
+
+            nav.classList.toggle('hidden-nav');
+            if (floatingBtn) floatingBtn.classList.toggle('nav-hidden');
+
+            if (nav.classList.contains('hidden-nav')) {
+                if (floatingIcon) { floatingIcon.classList.remove('fa-eye-slash'); floatingIcon.classList.add('fa-eye'); }
+                if (topIcon) { topIcon.classList.remove('fa-eye-slash'); topIcon.classList.add('fa-eye'); }
+            } else {
+                if (floatingIcon) { floatingIcon.classList.remove('fa-eye'); floatingIcon.classList.add('fa-eye-slash'); }
+                if (topIcon) { topIcon.classList.remove('fa-eye'); topIcon.classList.add('fa-eye-slash'); }
+            }
+        }
+
+        function switchBottomNav(view, tabId, event) {
+            if (event) event.preventDefault();
+
+            // Safely get the clicked link
+            const clickedLink = event ? event.target.closest('a') : null;
+            const isBottomNavClick = clickedLink ? clickedLink.closest('.bottom-nav') : false;
+
+            if (isBottomNavClick) {
+                document.querySelectorAll('.bottom-nav a').forEach(a => a.classList.remove('active'));
+                clickedLink.classList.add('active');
+            } else {
+                // If clicked from top nav or profile buttons, update bottom nav accordingly
+                document.querySelectorAll('.bottom-nav a').forEach(a => a.classList.remove('active'));
+                if (view === 'contact') {
+                    document.querySelector('.bottom-nav a:nth-child(4)').classList.add('active');
+                } else if (view === 'profile' && tabId === 'projects-grid') {
+                    document.querySelector('.bottom-nav a:nth-child(2)').classList.add('active');
+                } else if (view === 'profile' && tabId === 'experience-list') {
+                    document.querySelector('.bottom-nav a:nth-child(3)').classList.add('active');
+                } else {
+                    document.querySelector('.bottom-nav a:nth-child(1)').classList.add('active');
+                }
+            }
+
+            const profileView = document.getElementById('view-profile');
+            const contactView = document.getElementById('view-contact');
+
+            if (view === 'profile') {
+                profileView.style.display = 'block';
+                contactView.style.display = 'none';
+                if (tabId) switchTab(tabId);
+                window.scrollTo(0, 0);
+            } else if (view === 'contact') {
+                profileView.style.display = 'none';
+                contactView.style.display = 'block';
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function switchTab(tabId) {
+            // Update active button
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            const btn = document.querySelector(`.tab-btn[onclick="switchTab('${tabId}')"]`);
+            if (btn) btn.classList.add('active');
+
+            // Update active section
+            document.querySelectorAll('.feed-section').forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('active');
+            });
+            const target = document.getElementById(tabId);
+            if (target) {
+                target.classList.remove('hidden');
+                target.classList.add('active');
+            }
+        }
+
+        function openModal(title, desc, techStack, images, projectUrl) {
+            document.getElementById('projectModal').style.display = 'flex';
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalTech').innerText = techStack;
+
+            const linkWrap = document.getElementById('modalLinkWrap');
+            const linkEl = document.getElementById('modalLink');
+            if (projectUrl) {
+                linkEl.href = projectUrl;
+                linkEl.textContent = projectUrl;
+                linkWrap.style.display = 'block';
+            } else {
+                linkWrap.style.display = 'none';
+            }
+            const imgContainer = document.getElementById('modalImgContainer');
+            imgContainer.innerHTML = '';
+            images.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.onerror = () => { img.src = 'https://via.placeholder.com/600x600/2B213A/00E5FF?text=Image+Not+Found' };
+                imgContainer.appendChild(img);
+            });
+
+            const prevBtn = document.getElementById('modalPrevBtn');
+            const nextBtn = document.getElementById('modalNextBtn');
+            if (images.length > 1) {
+                prevBtn.style.display = 'flex';
+                nextBtn.style.display = 'flex';
+            } else {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+            }
+
+            document.body.style.overflow = 'hidden';
+        }
+
+        function scrollModal(dir) {
+            const container = document.getElementById('modalImgContainer');
+            const scrollAmount = container.clientWidth;
+            container.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function downloadCV() {
+            const pdfPath = encodeURI('file ni/Mark Bryan Delos Santos.pdf');
+            const link = document.createElement('a');
+            link.href = pdfPath;
+            link.download = 'Mark Bryan Delos Santos.pdf';
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+
+</html>
